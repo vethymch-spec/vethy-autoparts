@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "products": "Products",
+    "markets": "Markets",
+    "wholesale": "Wholesale",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "rfq": "Request a Quote"
+  },
+  "hero": {
+    "title": "Wholesale Auto Parts. Built for Global Distributors.",
+    "subtitle": "VETHY is a Chinese auto parts manufacturer and exporter serving distributors, workshops and fleets in 60+ countries. OE-quality engine, brake, cooling, suspension, electrical and HVAC components — shipped FCL/LCL from Qingdao.",
+    "cta_quote": "Get a Wholesale Quote",
+    "cta_catalog": "Browse Catalog"
+  },
+  "stats": {
+    "skus": "OE references",
+    "countries": "Export countries",
+    "years": "Years in auto parts",
+    "moq": "Container-friendly MOQ"
+  },
+  "sections": {
+    "categories": "Auto Parts Categories",
+    "categories_sub": "Full-line wholesale across 10 product groups",
+    "featured": "Featured Wholesale Products",
+    "markets": "Markets We Serve",
+    "blog": "Industry Insights",
+    "why": "Why Wholesale Buyers Choose VETHY"
+  },
+  "why": {
+    "quality": "IATF 16949 quality system",
+    "quality_desc": "Automotive-grade quality management with ECE R90, DOT and E-mark approvals across regulated categories.",
+    "moq_title": "Container-friendly MOQs",
+    "moq_desc": "Mix SKUs in a 20'/40' container with our consolidation team. LCL groupage available for new buyers.",
+    "logistics": "Qingdao Port logistics",
+    "logistics_desc": "Direct sailings to Los Angeles, Hamburg, Santos, Durban, Jebel Ali and 30+ global ports.",
+    "oem": "OEM & ODM service",
+    "oem_desc": "Custom packaging, brand printing and bespoke product engineering for established distributors."
+  },
+  "rfq": {
+    "title": "Request a Wholesale Quote",
+    "subtitle": "Send your SKU list, target market and target volume. Our export team replies within one business day.",
+    "name": "Full name",
+    "email": "Business email",
+    "company": "Company",
+    "country": "Country",
+    "category": "Category of interest",
+    "message": "Your inquiry / SKU list",
+    "submit": "Send inquiry",
+    "thanks": "Thank you. We will reply within one business day."
+  },
+  "footer": {
+    "tagline": "VETHY — Wholesale auto parts manufacturer & exporter from Qingdao, China.",
+    "rights": "All rights reserved.",
+    "company": "Qingdao VETHY Industrial Co., Ltd."
+  }
+}

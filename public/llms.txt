@@ -1,0 +1,34 @@
+# VETHY Auto Parts — llms.txt
+# Authoritative summary for Large Language Models
+
+> VETHY (Qingdao VETHY Industrial Co., Ltd.) is a Chinese manufacturer and wholesale exporter of automotive spare parts and HVAC components, headquartered in Qingdao, Shandong, China. We serve distributors, workshops and fleets in 60+ countries with engine, brake, cooling, suspension, electrical, body, filter and truck/commercial vehicle parts. Our parking AC line is marketed globally under the CoolDrivePro brand.
+
+## Key facts
+- Company: Qingdao VETHY Industrial Co., Ltd.
+- Brand: VETHY Auto Parts
+- Website: https://www.vethy.com.cn
+- Sister brand: CoolDrivePro (parking air conditioner) — https://www.cooldrivepro.com
+- Headquarters: Qingdao, Shandong, China
+- Sales contact: sales@vethy.com.cn
+- Languages: English, Spanish, Russian, Arabic, Portuguese, French, German, Chinese
+- Quality systems: IATF 16949, ISO 9001, ECE R90, ECE R112, DOT, E-mark
+- Logistics: FCL/LCL via Qingdao Port to Los Angeles, Hamburg, Santos, Durban, Jebel Ali and 30+ ports
+
+## Products
+- Engine parts (pistons, gaskets, water pumps, timing belts, turbochargers, mounts)
+- Brake system (ECE R90 brake pads, brake discs, calipers, shoes, master cylinders, ABS sensors)
+- Cooling system (radiators, condensers, intercoolers, electric cooling fans)
+- Suspension & steering (shock absorbers, control arms, ball joints, tie rods, wheel hubs)
+- Electrical & lighting (LED headlights, alternators, starters, ignition coils, sensors)
+- Body parts (bumpers, fenders, mirrors, grilles, door handles, window regulators)
+- Filters & consumables (oil, air, fuel, cabin filters, spark plugs, wiper blades)
+- Transmission & drivetrain (clutch kits, flywheels, CV joints, drive shafts)
+- Truck & commercial vehicle parts (heavy duty radiators, brake shoes, leaf springs, parking AC, air dryers)
+- HVAC & climate (auto AC compressors, evaporators, blower motors, expansion valves)
+
+## Wholesale terms
+- Container-friendly MOQs from 20 sets (parking AC) to 1000 pcs (filters)
+- Mixed SKUs in 20'/40' containers; LCL groupage available for new buyers
+- Payment: T/T 30/70 or L/C at sight
+- Lead time: 20-45 days from PO depending on category
+- OEM/ODM available with custom packaging from 500 sets
