@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1200" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(12, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(12, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(12, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(768,337.5)" opacity="0.9">
+  <rect width="900" height="600" fill="#0d1014" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect width="900" height="20" fill="#16191f"/>
+  <rect y="580" width="900" height="20" fill="#16191f"/>
+  <line x1="20" y1="30" x2="20" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="38" y1="30" x2="38" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="56" y1="30" x2="56" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="74" y1="30" x2="74" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="92" y1="30" x2="92" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="110" y1="30" x2="110" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="128" y1="30" x2="128" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="146" y1="30" x2="146" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="164" y1="30" x2="164" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="182" y1="30" x2="182" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="200" y1="30" x2="200" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="218" y1="30" x2="218" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="236" y1="30" x2="236" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="254" y1="30" x2="254" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="272" y1="30" x2="272" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="290" y1="30" x2="290" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="308" y1="30" x2="308" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="326" y1="30" x2="326" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="344" y1="30" x2="344" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="362" y1="30" x2="362" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="380" y1="30" x2="380" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="398" y1="30" x2="398" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="416" y1="30" x2="416" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="434" y1="30" x2="434" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="452" y1="30" x2="452" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="470" y1="30" x2="470" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="488" y1="30" x2="488" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="506" y1="30" x2="506" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="524" y1="30" x2="524" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="542" y1="30" x2="542" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="560" y1="30" x2="560" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="578" y1="30" x2="578" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="596" y1="30" x2="596" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="614" y1="30" x2="614" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="632" y1="30" x2="632" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="650" y1="30" x2="650" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="668" y1="30" x2="668" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="686" y1="30" x2="686" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="704" y1="30" x2="704" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="722" y1="30" x2="722" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="740" y1="30" x2="740" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="758" y1="30" x2="758" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="776" y1="30" x2="776" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="794" y1="30" x2="794" y2="570" stroke="rgba(255,255,255,0.08)"/><line x1="812" y1="30" x2="812" y2="570" stroke="rgba(255,255,255,0.08)"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>

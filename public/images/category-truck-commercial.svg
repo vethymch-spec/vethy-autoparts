@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1800" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(8, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(8, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(8, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(500, 540)" opacity="0.85">
+  <path d="M0,260 L120,260 L160,140 L380,140 L400,260 L520,260 L520,360 L0,360 Z" fill="#0d1014" stroke="rgba(255,80,100,0.35)" stroke-width="1.2"/>
+  <path d="M170,150 L370,150 L380,250 L160,250 Z" fill="rgba(200,16,46,0.12)"/>
+  <rect x="540" y="120" width="860" height="240" fill="#0d1014" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
+  <rect x="700" y="80" width="200" height="40" rx="4" fill="#1a1d24" stroke="rgba(255,80,100,0.4)" stroke-width="1.2"/>
+  <circle cx="100" cy="380" r="48" fill="#000" stroke="rgba(255,255,255,0.18)" stroke-width="2"/><circle cx="100" cy="380" r="22" fill="#1a1d24"/><circle cx="440" cy="380" r="48" fill="#000" stroke="rgba(255,255,255,0.18)" stroke-width="2"/><circle cx="440" cy="380" r="22" fill="#1a1d24"/><circle cx="780" cy="380" r="48" fill="#000" stroke="rgba(255,255,255,0.18)" stroke-width="2"/><circle cx="780" cy="380" r="22" fill="#1a1d24"/><circle cx="1100" cy="380" r="48" fill="#000" stroke="rgba(255,255,255,0.18)" stroke-width="2"/><circle cx="1100" cy="380" r="22" fill="#1a1d24"/><circle cx="1300" cy="380" r="48" fill="#000" stroke="rgba(255,255,255,0.18)" stroke-width="2"/><circle cx="1300" cy="380" r="22" fill="#1a1d24"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>

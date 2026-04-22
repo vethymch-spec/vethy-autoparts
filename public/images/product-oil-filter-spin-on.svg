@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1200" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(12, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(12, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(12, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(1200,607.5)" opacity="0.92">
+  <rect x="-100" y="-200" width="200" height="400" rx="10" fill="#0d1014" stroke="rgba(255,255,255,0.15)"/>
+  <rect x="-100" y="-220" width="200" height="40" rx="6" fill="#16191f"/>
+  <rect x="-100" y="180" width="200" height="40" rx="6" fill="#16191f"/>
+  <line x1="-90" y1="-160" x2="90" y2="-160" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-138" x2="90" y2="-138" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-116" x2="90" y2="-116" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-94" x2="90" y2="-94" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-72" x2="90" y2="-72" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-50" x2="90" y2="-50" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-28" x2="90" y2="-28" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="-6" x2="90" y2="-6" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="16" x2="90" y2="16" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="38" x2="90" y2="38" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="60" x2="90" y2="60" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="82" x2="90" y2="82" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="104" x2="90" y2="104" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="126" x2="90" y2="126" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="148" x2="90" y2="148" stroke="rgba(200,16,46,0.18)"/><line x1="-90" y1="170" x2="90" y2="170" stroke="rgba(200,16,46,0.18)"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>

@@ -6,27 +6,38 @@ export default function ProductsIndex() {
   return (
     <>
       <SEO
-        title="Featured Wholesale Auto Parts Products | VETHY"
-        description="Featured wholesale auto parts from VETHY: ceramic brake pads, aluminum truck radiators, LED headlight bulbs, oil filters, shock absorbers, AC compressors, control arms and parking AC."
+        title="Featured Auto Parts Products | VETHY Wholesale"
+        description="Discover featured wholesale auto parts from VETHY: ceramic brake pads, aluminum radiators, heavy-duty starters, parking ACs, oil filters and more. OE quality, container-load shipping."
         path="/products"
-        keywords={['wholesale auto parts products', 'featured auto spare parts', 'aftermarket parts catalog']}
+        keywords={['featured auto parts', 'wholesale auto parts products', 'OEM aftermarket parts']}
       />
-      <section className="bg-ink-900 text-white">
-        <div className="container-page py-14">
-          <h1 className="font-display text-4xl font-extrabold md:text-5xl">Featured Wholesale Products</h1>
-          <p className="mt-3 max-w-3xl text-gray-300">High-volume export SKUs with MOQ, packaging and certifications on each product page.</p>
+
+      <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-[#0a0c10] pt-32 pb-20 text-white">
+        <img src="/images/hero.svg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-90" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }} />
+        <div className="container-page relative">
+          <p className="eyebrow-light mb-4">Products</p>
+          <h1 className="text-display-lg text-balance">Best-selling SKUs.</h1>
+          <p className="mt-5 max-w-2xl text-base text-white/80 sm:text-lg">A curated selection of our most-requested parts across global wholesale markets.</p>
         </div>
       </section>
-      <section className="container-page py-16">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
-            <Link key={p.slug} to={`/products/${p.slug}`} className="card group">
-              <div className="text-xs uppercase tracking-wider text-brand">{p.category}</div>
-              <h2 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-brand">{p.name}</h2>
-              <p className="mt-2 line-clamp-3 text-sm text-ink-500">{p.shortDescription}</p>
-              <div className="mt-3 text-xs text-ink-700">MOQ: {p.moq} · Lead time: {p.leadTime}</div>
-            </Link>
-          ))}
+
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-page">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((p) => (
+              <Link key={p.slug} to={`/products/${p.slug}`} className="group tile">
+                <img src={`/images/product-${p.slug}.svg`} alt={p.name} className="tile-img" loading="lazy" />
+                <div className="tile-body">
+                  <p className="eyebrow-light">{p.category.replace(/-/g, ' ')}</p>
+                  <h2 className="mt-2 font-display text-xl font-bold leading-tight text-white">{p.name}</h2>
+                </div>
+                <div className="tile-foot">
+                  <p className="text-[12px] text-white/70">MOQ {p.moq} · Lead time {p.leadTime}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

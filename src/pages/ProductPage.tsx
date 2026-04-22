@@ -2,12 +2,11 @@ import { Link, useParams } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { findProduct } from '../data/products';
 import { findCategory, findSubcategory } from '../data/categories';
-import { RFQForm } from '../components/RFQForm';
 
 export default function ProductPage() {
   const { slug } = useParams();
   const p = findProduct(slug || '');
-  if (!p) return <div className="container-page py-20">Product not found.</div>;
+  if (!p) return <div className="container-page py-32">Product not found.</div>;
   const cat = findCategory(p.category);
   const sub = findSubcategory(p.category, p.subcategory);
 
@@ -15,101 +14,78 @@ export default function ProductPage() {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: p.name,
-    description: p.shortDescription,
+    description: p.intro,
     brand: { '@type': 'Brand', name: 'VETHY' },
-    manufacturer: { '@type': 'Organization', name: 'Qingdao VETHY Industrial Co., Ltd.' },
-    category: cat?.name,
-    sku: p.slug,
-    offers: { '@type': 'Offer', priceCurrency: 'USD', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'VETHY' } },
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'MOQ', value: p.moq },
-      { '@type': 'PropertyValue', name: 'Lead time', value: p.leadTime },
-      { '@type': 'PropertyValue', name: 'Packaging', value: p.packaging },
-      ...(p.certifications.map((c) => ({ '@type': 'PropertyValue', name: 'Certification', value: c }))),
-    ],
+    manufacturer: { '@type': 'Organization', name: 'Qingdao VETHY Industrial Co., Ltd.', url: 'https://www.vethy.com.cn' },
+    image: `https://www.vethy.com.cn/images/product-${p.slug}.svg`,
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'VETHY' } },
   };
 
   return (
     <>
       <SEO
-        title={`${p.name} | Wholesale Supplier — VETHY`}
-        description={p.shortDescription}
+        title={`${p.name} | VETHY Wholesale`}
+        description={p.intro}
         path={`/products/${p.slug}`}
-        keywords={p.keywords}
+        keywords={[p.name, `${p.name} wholesale`, `${p.name} manufacturer China`, `OEM ${p.name}`]}
         jsonLd={jsonLd}
       />
-      <section className="bg-gray-50">
-        <div className="container-page py-12">
-          <nav className="text-sm text-ink-500">
-            <Link to="/categories">Categories</Link>
-            {cat && <> / <Link to={`/categories/${cat.slug}`}>{cat.name}</Link></>}
-            {cat && sub && <> / <Link to={`/categories/${cat.slug}/${sub.slug}`}>{sub.name}</Link></>}
-            {' '}/ <span className="text-ink-900">{p.name}</span>
-          </nav>
-          <h1 className="mt-4 font-display text-4xl font-extrabold text-ink-900">{p.name}</h1>
-          <p className="mt-3 max-w-3xl text-lg text-ink-700">{p.shortDescription}</p>
+
+      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[#0a0c10] pt-32 pb-20 text-white">
+        <img src={`/images/product-${p.slug}.svg`} alt="" className="absolute inset-0 h-full w-full object-cover opacity-90" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0))' }} />
+        <div className="container-page relative">
+          <p className="eyebrow-light mb-4">{cat?.name}{sub ? ' · ' + sub.name : ''}</p>
+          <h1 className="text-display-lg text-balance">{p.name}</h1>
+          <p className="mt-5 max-w-2xl text-base text-white/80 sm:text-lg">{p.intro}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/contact" className="btn-pill-light">Request quote</Link>
+            <Link to={`/categories/${p.category}`} className="btn-pill-ghost">More in {cat?.name}</Link>
+          </div>
         </div>
       </section>
 
-      <section className="container-page grid gap-10 py-16 lg:grid-cols-3">
-        <article className="lg:col-span-2 space-y-8">
-          <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">Highlights</h2>
-            <ul className="mt-3 space-y-2">
-              {p.highlights.map((h) => (
-                <li key={h} className="flex gap-2 text-ink-700"><span className="text-brand">✓</span> {h}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">Vehicle applications</h2>
-            <ul className="mt-3 grid grid-cols-2 gap-2">
-              {p.applications.map((a) => (<li key={a} className="rounded bg-gray-100 px-3 py-2 text-sm text-ink-700">{a}</li>))}
-            </ul>
-          </div>
-          {p.oeReferences && (
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-page">
+          <div className="grid gap-12 lg:grid-cols-3">
             <div>
-              <h2 className="font-display text-xl font-bold text-ink-900">OE cross-references</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {p.oeReferences.map((r) => (<code key={r} className="rounded bg-ink-900 px-2 py-1 text-xs text-white">{r}</code>))}
-              </div>
+              <p className="eyebrow mb-3">Highlights</p>
+              <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Built for the global aftermarket.</h2>
+              <ul className="mt-6 space-y-4 text-base text-ink-700">
+                {p.highlights.map((h) => (
+                  <li key={h} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand" />{h}</li>
+                ))}
+              </ul>
             </div>
-          )}
-          <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">Wholesale keywords this product serves</h2>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {p.keywords.map((k) => (<li key={k} className="rounded-full bg-brand/10 px-3 py-1 text-xs text-brand-dark">{k}</li>))}
-            </ul>
+
+            <div>
+              <p className="eyebrow mb-3">Applications</p>
+              <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Vehicle fitment.</h2>
+              <ul className="mt-6 space-y-2 text-base text-ink-700">
+                {p.applications.map((a) => (<li key={a}>· {a}</li>))}
+              </ul>
+              {p.oeReferences.length > 0 && (
+                <>
+                  <p className="eyebrow mt-10 mb-3">OE references</p>
+                  <p className="text-[13px] leading-relaxed text-ink-500 break-words">{p.oeReferences.join(' · ')}</p>
+                </>
+              )}
+            </div>
+
+            <div className="rounded-3xl bg-[#f5f5f7] p-8">
+              <p className="eyebrow mb-3">Wholesale spec</p>
+              <h2 className="font-display text-xl font-bold text-ink-900">Order details</h2>
+              <dl className="mt-6 space-y-4 text-[14px]">
+                <div className="border-b border-black/[0.08] pb-4"><dt className="text-ink-500">MOQ</dt><dd className="mt-1 font-semibold text-ink-900">{p.moq}</dd></div>
+                <div className="border-b border-black/[0.08] pb-4"><dt className="text-ink-500">Packaging</dt><dd className="mt-1 font-semibold text-ink-900">{p.packaging}</dd></div>
+                <div className="border-b border-black/[0.08] pb-4"><dt className="text-ink-500">Lead time</dt><dd className="mt-1 font-semibold text-ink-900">{p.leadTime}</dd></div>
+                <div><dt className="text-ink-500">Certifications</dt><dd className="mt-1 font-semibold text-ink-900">{p.certifications.join(', ')}</dd></div>
+              </dl>
+              <Link to="/contact" className="btn-pill-dark mt-8 block text-center">Get container quote</Link>
+            </div>
           </div>
-        </article>
-
-        <aside className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h3 className="font-display text-lg font-bold text-ink-900">Wholesale terms</h3>
-          <dl className="mt-4 space-y-3 text-sm">
-            <Term k="MOQ" v={p.moq} />
-            <Term k="Lead time" v={p.leadTime} />
-            <Term k="Packaging" v={p.packaging} />
-            <Term k="Certifications" v={p.certifications.join(', ')} />
-            <Term k="Origin" v="Qingdao, China" />
-            <Term k="Payment" v="T/T 30/70, L/C at sight" />
-            <Term k="Shipping" v="FCL / LCL via Qingdao Port" />
-          </dl>
-          <Link to="/contact" className="btn-primary mt-6 w-full">Request quote</Link>
-        </aside>
-      </section>
-
-      <section className="container-page pb-20">
-        <RFQForm />
+        </div>
       </section>
     </>
-  );
-}
-
-function Term({ k, v }: { k: string; v: string }) {
-  return (
-    <div className="flex flex-col">
-      <dt className="text-xs uppercase tracking-wider text-ink-500">{k}</dt>
-      <dd className="font-medium text-ink-900">{v}</dd>
-    </div>
   );
 }

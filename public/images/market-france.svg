@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1200" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(8, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(8, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(8, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(1200, 675)" opacity="0.45">
+  <circle r="320" fill="none" stroke="rgba(255,255,255,0.1)"/>
+  <circle r="240" fill="none" stroke="rgba(255,255,255,0.08)"/>
+  <ellipse rx="320" ry="100" fill="none" stroke="rgba(255,255,255,0.08)"/>
+  <ellipse rx="200" ry="320" fill="none" stroke="rgba(200,16,46,0.25)"/>
+  <circle r="8" fill="rgba(200,16,46,0.9)"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>

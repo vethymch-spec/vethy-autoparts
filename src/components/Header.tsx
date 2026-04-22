@@ -1,77 +1,65 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supportedLngs } from '../i18n';
 
-const langLabel: Record<string, string> = {
-  en: 'EN', es: 'ES', ru: 'RU', ar: 'AR', pt: 'PT', fr: 'FR', de: 'DE',
-};
+const langLabel: Record<string, string> = { en: 'EN', es: 'ES', ru: 'RU', ar: 'AR', pt: 'PT', fr: 'FR', de: 'DE' };
 
 export function Header() {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
-  const navLink = ({ isActive }: { isActive: boolean }) =>
-    `text-sm font-semibold ${isActive ? 'text-brand' : 'text-ink-700 hover:text-brand'} transition-colors`;
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+  const onHome = pathname === '/';
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const dark = !onHome || scrolled || open;
+  const headerBg = dark ? 'glass border-b border-black/5 text-ink-900' : 'bg-transparent text-white';
+  const linkColor = dark ? 'text-ink-900/80 hover:text-ink-900' : 'text-white/85 hover:text-white';
+  const ctaClass = dark ? 'bg-black text-white hover:bg-black/85' : 'bg-white text-black hover:bg-white/90';
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur">
-      <div className="container-page flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="inline-block h-8 w-8 rounded-md bg-brand" aria-hidden />
-          <div className="flex flex-col leading-tight">
-            <span className="font-display text-lg font-extrabold tracking-wider text-ink-900">VETHY</span>
-            <span className="text-[10px] uppercase tracking-widest text-ink-500">Auto Parts</span>
-          </div>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${headerBg}`}>
+      <div className="container-page flex h-12 items-center justify-between sm:h-14">
+        <Link to="/" className="flex items-center gap-2 font-display text-[15px] font-semibold tracking-wide" onClick={() => setOpen(false)}>
+          <span className="inline-block h-5 w-5 rounded-sm bg-brand" aria-hidden />
+          VETHY
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" end className={navLink}>{t('nav.home')}</NavLink>
-          <NavLink to="/categories" className={navLink}>{t('nav.categories')}</NavLink>
-          <NavLink to="/products" className={navLink}>{t('nav.products')}</NavLink>
-          <NavLink to="/markets" className={navLink}>{t('nav.markets')}</NavLink>
-          <NavLink to="/wholesale" className={navLink}>{t('nav.wholesale')}</NavLink>
-          <NavLink to="/blog" className={navLink}>{t('nav.blog')}</NavLink>
-          <NavLink to="/about" className={navLink}>{t('nav.about')}</NavLink>
-          <Link to="/contact" className="btn-primary !py-2 !px-4 text-sm">{t('nav.rfq')}</Link>
-          <select
-            aria-label="Language"
-            className="ml-2 rounded border border-gray-300 bg-white px-2 py-1 text-xs font-semibold text-ink-700"
-            value={i18n.language?.split('-')[0] || 'en'}
-            onChange={(e) => i18n.changeLanguage(e.target.value)}
-          >
-            {supportedLngs.map((l) => (
-              <option key={l} value={l}>{langLabel[l]}</option>
-            ))}
+        <nav className="hidden items-center gap-7 text-[13px] md:flex">
+          {[
+            ['categories', t('nav.categories')],
+            ['products', t('nav.products')],
+            ['markets', t('nav.markets')],
+            ['wholesale', t('nav.wholesale')],
+            ['blog', t('nav.blog')],
+            ['about', t('nav.about')],
+          ].map(([k, label]) => (
+            <NavLink key={k} to={`/${k}`} className={({ isActive }) => `${linkColor} transition ${isActive ? '!text-brand' : ''}`}>{label}</NavLink>
+          ))}
+          <Link to="/contact" className={`rounded-full px-4 py-1.5 text-[12px] font-semibold transition ${ctaClass}`}>{t('nav.rfq')}</Link>
+          <select aria-label="Language" className={`bg-transparent text-[12px] font-medium ${linkColor} outline-none`} value={i18n.language?.split('-')[0] || 'en'} onChange={(e) => i18n.changeLanguage(e.target.value)}>
+            {supportedLngs.map((l) => (<option key={l} value={l} className="text-black">{langLabel[l]}</option>))}
           </select>
         </nav>
 
-        <button
-          className="md:hidden text-ink-700"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <button className="md:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d={open ? 'M6 6l12 12M6 18L18 6' : 'M3 7h18M3 17h18'} /></svg>
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <div className="container-page flex flex-col gap-3 py-4">
-            {['home','categories','products','markets','wholesale','blog','about','contact'].map((k) => (
-              <NavLink key={k} to={k === 'home' ? '/' : `/${k}`} className={navLink} onClick={() => setOpen(false)}>
-                {t(`nav.${k}`)}
-              </NavLink>
+        <div className="border-t border-black/5 bg-white text-ink-900 md:hidden">
+          <div className="container-page flex flex-col gap-1 py-3 text-[15px] font-medium">
+            {[['/', t('nav.home')], ['/categories', t('nav.categories')], ['/products', t('nav.products')], ['/markets', t('nav.markets')], ['/wholesale', t('nav.wholesale')], ['/blog', t('nav.blog')], ['/about', t('nav.about')], ['/contact', t('nav.rfq')]].map(([href, label]) => (
+              <NavLink key={href} to={href} className="rounded px-2 py-3 hover:bg-ink-100" onClick={() => setOpen(false)}>{label}</NavLink>
             ))}
-            <select
-              aria-label="Language"
-              className="rounded border border-gray-300 bg-white px-2 py-2 text-sm font-semibold text-ink-700"
-              value={i18n.language?.split('-')[0] || 'en'}
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-            >
-              {supportedLngs.map((l) => (
-                <option key={l} value={l}>{langLabel[l]}</option>
-              ))}
-            </select>
           </div>
         </div>
       )}

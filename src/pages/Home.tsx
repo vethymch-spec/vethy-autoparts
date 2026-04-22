@@ -6,27 +6,58 @@ import { products } from '../data/products';
 import { markets } from '../data/markets';
 import { blogPosts } from '../data/blog';
 
+interface PanelProps {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  bg: string;
+  primary: { to: string; label: string };
+  secondary?: { to: string; label: string };
+  align?: 'top' | 'bottom';
+}
+
+function Panel({ eyebrow, title, subtitle, bg, primary, secondary, align = 'top' }: PanelProps) {
+  return (
+    <section className="panel">
+      <img src={bg} alt="" className="panel-bg" loading="lazy" />
+      <div className="absolute inset-x-0 top-0 z-[1] h-1/2" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0))' }} />
+      <div className="absolute inset-x-0 bottom-0 z-[1] h-1/2" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0))' }} />
+      {align === 'top' ? (
+        <>
+          <div className="panel-content animate-fade-up">
+            <p className="eyebrow-light mb-4">{eyebrow}</p>
+            <h2 className="text-display-lg text-balance">{title}</h2>
+            {subtitle && <p className="mt-5 max-w-2xl text-base text-white/80 sm:text-lg">{subtitle}</p>}
+          </div>
+          <div className="panel-actions">
+            <Link to={primary.to} className="btn-pill-light">{primary.label}</Link>
+            {secondary && <Link to={secondary.to} className="btn-pill-ghost">{secondary.label}</Link>}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="panel-content pt-[24vh] sm:pt-[20vh]">
+            <p className="eyebrow-light mb-4">{eyebrow}</p>
+          </div>
+          <div className="relative z-10 mx-auto max-w-3xl px-5 pb-[14vh] text-center">
+            <h2 className="text-display-lg text-balance">{title}</h2>
+            {subtitle && <p className="mt-5 text-base text-white/80 sm:text-lg">{subtitle}</p>}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link to={primary.to} className="btn-pill-light">{primary.label}</Link>
+              {secondary && <Link to={secondary.to} className="btn-pill-ghost">{secondary.label}</Link>}
+            </div>
+          </div>
+        </>
+      )}
+    </section>
+  );
+}
+
 export default function Home() {
   const { t } = useTranslation();
   const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Qingdao VETHY Industrial Co., Ltd.',
-      alternateName: 'VETHY Auto Parts',
-      url: 'https://www.vethy.com.cn',
-      logo: 'https://www.vethy.com.cn/logo.png',
-      sameAs: ['https://www.cooldrivepro.com'],
-      address: { '@type': 'PostalAddress', addressLocality: 'Qingdao', addressRegion: 'Shandong', addressCountry: 'CN' },
-      contactPoint: [{ '@type': 'ContactPoint', email: 'sales@vethy.com.cn', contactType: 'sales', areaServed: 'Worldwide', availableLanguage: ['English','Spanish','Russian','Arabic','Portuguese','French','German','Chinese'] }],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      url: 'https://www.vethy.com.cn',
-      name: 'VETHY Auto Parts',
-      inLanguage: ['en','es','ru','ar','pt','fr','de'],
-    },
+    { '@context': 'https://schema.org', '@type': 'Organization', name: 'Qingdao VETHY Industrial Co., Ltd.', alternateName: 'VETHY Auto Parts', url: 'https://www.vethy.com.cn', logo: 'https://www.vethy.com.cn/logo.png', sameAs: ['https://www.cooldrivepro.com'], address: { '@type': 'PostalAddress', addressLocality: 'Qingdao', addressRegion: 'Shandong', addressCountry: 'CN' }, contactPoint: [{ '@type': 'ContactPoint', email: 'sales@vethy.com.cn', contactType: 'sales', areaServed: 'Worldwide', availableLanguage: ['English','Spanish','Russian','Arabic','Portuguese','French','German','Chinese'] }] },
+    { '@context': 'https://schema.org', '@type': 'WebSite', url: 'https://www.vethy.com.cn', name: 'VETHY Auto Parts', inLanguage: ['en','es','ru','ar','pt','fr','de'] },
   ];
 
   return (
@@ -39,141 +70,136 @@ export default function Home() {
         jsonLd={jsonLd}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-ink-900 via-ink-800 to-ink-900 text-white">
-        <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(800px 400px at 80% 20%, #C8102E, transparent)' }} />
-        <div className="container-page relative grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
-          <div>
-            <p className="mb-3 inline-block rounded-full bg-brand/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-light">Wholesale · Export · OEM</p>
-            <h1 className="font-display text-4xl font-extrabold leading-tight md:text-5xl">{t('hero.title')}</h1>
-            <p className="mt-5 text-lg text-gray-300">{t('hero.subtitle')}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-primary">{t('hero.cta_quote')}</Link>
-              <Link to="/categories" className="btn-outline border-white text-white hover:bg-white hover:text-ink-900">{t('hero.cta_catalog')}</Link>
-            </div>
-            <div className="mt-10 grid grid-cols-4 gap-4 border-t border-white/10 pt-6">
-              <Stat n="8000+" l={t('stats.skus')} />
-              <Stat n="60+" l={t('stats.countries')} />
-              <Stat n="15+" l={t('stats.years')} />
-              <Stat n="20pcs" l={t('stats.moq')} />
-            </div>
+      <Panel
+        eyebrow="VETHY · Wholesale Export"
+        title={t('hero.title', 'Auto parts. Built for the world.')}
+        subtitle={t('hero.subtitle', '8000+ OE-quality SKUs across cars, trucks and commercial vehicles. Direct from Qingdao to 60+ countries.')}
+        bg="/images/hero.svg"
+        primary={{ to: '/contact', label: t('hero.cta_quote', 'Request a quote') }}
+        secondary={{ to: '/categories', label: t('hero.cta_catalog', 'Browse catalog') }}
+        align="bottom"
+      />
+
+      {[
+        { slug: 'engine-parts', eyebrow: 'Engine', title: 'The heart of every vehicle.', sub: 'Pistons, gaskets, pumps, turbos — built to OE specification.' },
+        { slug: 'brake-system', eyebrow: 'Brake System', title: 'Stop with confidence.', sub: 'ECE R90 ceramic pads, rotors and calipers for global aftermarket.' },
+        { slug: 'cooling-system', eyebrow: 'Cooling', title: 'Run cool. Run further.', sub: 'CAB-brazed aluminum radiators, condensers and intercoolers.' },
+        { slug: 'hvac-climate', eyebrow: 'Parking AC & HVAC', title: 'Comfort, no idle.', sub: '12V/24V parking air conditioners for trucks, RVs and vans.' },
+      ].map((c, i) => (
+        <Panel
+          key={c.slug}
+          eyebrow={c.eyebrow}
+          title={c.title}
+          subtitle={c.sub}
+          bg={`/images/category-${c.slug}.svg`}
+          primary={{ to: `/categories/${c.slug}`, label: 'Learn more' }}
+          secondary={{ to: '/contact', label: 'Get a quote' }}
+          align={i % 2 === 0 ? 'bottom' : 'top'}
+        />
+      ))}
+
+      <Panel
+        eyebrow="Wholesale"
+        title="Container loads. Mixed pallets. OEM packaging."
+        subtitle="MOQ from 20pcs per SKU on consolidated orders. Custom packaging, barcoding and door-to-door shipping."
+        bg="/images/banner-wholesale.svg"
+        primary={{ to: '/wholesale', label: 'Wholesale program' }}
+        secondary={{ to: '/contact', label: 'Talk to sales' }}
+        align="top"
+      />
+
+      <Panel
+        eyebrow="Global"
+        title="Shipping to 60+ countries."
+        subtitle="From Qingdao to Los Angeles, Hamburg, Santos, Durban, Jebel Ali and beyond. FCL, LCL and rail to Central Asia."
+        bg="/images/market-united-states.svg"
+        primary={{ to: '/markets', label: 'See markets' }}
+        align="bottom"
+      />
+
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow mb-3">Featured</p>
+            <h2 className="text-display-md text-ink-900">Best-selling SKUs.</h2>
+            <p className="mt-4 text-base text-ink-500 sm:text-lg">Eight of our most-requested parts across global markets.</p>
           </div>
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-3">
-              {categories.slice(0, 6).map((c) => (
-                <Link key={c.slug} to={`/categories/${c.slug}`} className="group rounded-xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
-                  <div className="text-xs uppercase tracking-wider text-brand-light">{c.subcategories.length} subcategories</div>
-                  <div className="mt-1 font-display font-bold text-white group-hover:text-brand-light">{c.name}</div>
-                </Link>
-              ))}
-            </div>
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {products.slice(0, 8).map((p, i) => (
+              <Link key={p.slug} to={`/products/${p.slug}`} className={i < 2 ? 'group tile-dark sm:col-span-2' : 'group tile'}>
+                <img src={`/images/product-${p.slug}.svg`} alt={p.name} className="tile-img" loading="lazy" />
+                <div className="tile-body">
+                  <p className={i < 2 ? 'eyebrow-light' : 'eyebrow'}>{p.category.replace(/-/g, ' ')}</p>
+                  <h3 className={`mt-2 font-display text-2xl font-bold leading-tight ${i < 2 ? 'text-white' : 'text-ink-900'}`}>{p.name}</h3>
+                </div>
+                <div className="tile-foot">
+                  <span className={`text-[13px] font-medium ${i < 2 ? 'text-white/80' : 'text-ink-700'}`}>MOQ {p.moq} →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link to="/products" className="btn-pill-dark">View all products</Link>
           </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="container-page py-20">
-        <SectionHeader title={t('sections.categories')} subtitle={t('sections.categories_sub')} />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c) => (
-            <Link key={c.slug} to={`/categories/${c.slug}`} className="card group">
-              <h3 className="font-display text-xl font-bold text-ink-900 group-hover:text-brand">{c.name}</h3>
-              <p className="mt-2 text-sm text-ink-500">{c.intro}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {c.subcategories.slice(0, 3).map((s) => (
-                  <span key={s.slug} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-ink-700">{s.name}</span>
-                ))}
-                {c.subcategories.length > 3 && <span className="text-xs text-ink-500">+{c.subcategories.length - 3} more</span>}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured products */}
-      <section className="bg-gray-50">
-        <div className="container-page py-20">
-          <SectionHeader title={t('sections.featured')} />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {products.slice(0, 8).map((p) => (
-              <Link key={p.slug} to={`/products/${p.slug}`} className="card group">
-                <div className="text-xs uppercase tracking-wider text-brand">{p.category.replace('-', ' ')}</div>
-                <h3 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-brand">{p.name}</h3>
-                <p className="mt-2 line-clamp-3 text-sm text-ink-500">{p.shortDescription}</p>
-                <div className="mt-3 text-xs text-ink-700">MOQ: {p.moq}</div>
+      <section className="bg-[#f5f5f7] py-24 sm:py-32">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow mb-3">Catalog</p>
+            <h2 className="text-display-md text-ink-900">Ten categories. Sixty subcategories.</h2>
+          </div>
+          <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c) => (
+              <Link key={c.slug} to={`/categories/${c.slug}`} className="group rounded-2xl bg-white p-7 transition hover:shadow-lg">
+                <h3 className="font-display text-xl font-bold text-ink-900 group-hover:text-brand">{c.name}</h3>
+                <p className="mt-2 text-[13px] text-ink-500 line-clamp-2">{c.intro}</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-700">{c.subcategories.length} subcategories →</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why VETHY */}
-      <section className="container-page py-20">
-        <SectionHeader title={t('sections.why')} />
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <Why icon="✓" title={t('why.quality')} desc={t('why.quality_desc')} />
-          <Why icon="📦" title={t('why.moq_title')} desc={t('why.moq_desc')} />
-          <Why icon="🚢" title={t('why.logistics')} desc={t('why.logistics_desc')} />
-          <Why icon="⚙" title={t('why.oem')} desc={t('why.oem_desc')} />
-        </div>
-      </section>
-
-      {/* Markets */}
-      <section className="bg-gray-50">
-        <div className="container-page py-20">
-          <SectionHeader title={t('sections.markets')} />
-          <div className="mt-10 grid gap-3 md:grid-cols-3 lg:grid-cols-4">
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow mb-3">Reach</p>
+            <h2 className="text-display-md text-ink-900">Where we ship.</h2>
+          </div>
+          <div className="mt-16 grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {markets.map((m) => (
-              <Link key={m.slug} to={`/markets/${m.slug}`} className="rounded-lg border border-gray-200 bg-white px-4 py-3 hover:border-brand hover:shadow-sm">
-                <div className="text-xs uppercase tracking-wider text-ink-500">{m.region}</div>
-                <div className="font-semibold text-ink-900">{m.name}</div>
+              <Link key={m.slug} to={`/markets/${m.slug}`} className="group rounded-2xl border border-black/[0.08] p-5 transition hover:border-black/30">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">{m.region}</p>
+                <p className="mt-1 font-display text-lg font-semibold text-ink-900 group-hover:text-brand">{m.name}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Blog */}
-      <section className="container-page py-20">
-        <SectionHeader title={t('sections.blog')} />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.slice(0, 3).map((p) => (
-            <Link key={p.slug} to={`/blog/${p.slug}`} className="card group">
-              <div className="text-xs uppercase tracking-wider text-brand">{p.category}</div>
-              <h3 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-brand">{p.title}</h3>
-              <p className="mt-2 line-clamp-3 text-sm text-ink-500">{p.excerpt}</p>
-            </Link>
-          ))}
+      <section className="bg-[#f5f5f7] py-24 sm:py-32">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow mb-3">Insights</p>
+            <h2 className="text-display-md text-ink-900">From the VETHY desk.</h2>
+          </div>
+          <div className="mt-16 grid gap-5 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map((p) => (
+              <Link key={p.slug} to={`/blog/${p.slug}`} className="group tile bg-white">
+                <img src={`/images/blog-${p.slug}.svg`} alt={p.title} className="tile-img" loading="lazy" />
+                <div className="tile-body">
+                  <p className="eyebrow-light">{p.category}</p>
+                </div>
+                <div className="tile-foot">
+                  <h3 className="font-display text-lg font-bold leading-tight text-white">{p.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>
-  );
-}
-
-function Stat({ n, l }: { n: string; l: string }) {
-  return (
-    <div>
-      <div className="font-display text-2xl font-extrabold text-white">{n}</div>
-      <div className="text-xs text-gray-400">{l}</div>
-    </div>
-  );
-}
-
-function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
-  return (
-    <div className="text-center">
-      <h2 className="font-display text-3xl font-extrabold text-ink-900 md:text-4xl">{title}</h2>
-      {subtitle && <p className="mt-3 text-ink-500">{subtitle}</p>}
-    </div>
-  );
-}
-
-function Why({ icon, title, desc }: { icon: string; title: string; desc: string }) {
-  return (
-    <div className="card">
-      <div className="text-2xl">{icon}</div>
-      <h3 className="mt-3 font-display text-lg font-bold text-ink-900">{title}</h3>
-      <p className="mt-2 text-sm text-ink-500">{desc}</p>
-    </div>
   );
 }

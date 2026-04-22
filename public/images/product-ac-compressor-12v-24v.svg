@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1200" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(12, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(12, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(12, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(1320,675)" opacity="0.92">
+  <circle r="180" fill="#0d1014" stroke="rgba(255,255,255,0.15)"/>
+  <circle r="120" fill="#16191f"/>
+  <circle r="60" fill="#0a0c10" stroke="rgba(200,16,46,0.5)" stroke-width="2"/>
+  <rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(0)"/><rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(60)"/><rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(120)"/><rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(180)"/><rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(240)"/><rect x="-12" y="-110" width="24" height="50" rx="4" fill="#1a1d24" transform="rotate(300)"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>

@@ -1,42 +1,53 @@
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 
 export default function About() {
   return (
     <>
       <SEO
-        title="About VETHY | Chinese Auto Parts Manufacturer & Exporter"
-        description="VETHY (Qingdao VETHY Industrial Co., Ltd.) is a Chinese manufacturer and wholesale exporter of automotive parts and HVAC components, serving distributors, workshops and fleets in 60+ countries."
+        title="About VETHY | Qingdao Auto Parts Manufacturer & Wholesale Exporter"
+        description="VETHY is a Qingdao-based auto parts manufacturer and wholesale exporter founded on engineering rigor, OE quality, and global service. Learn about our factory, certifications and team."
         path="/about"
-        keywords={['about VETHY', 'Chinese auto parts manufacturer', 'auto parts exporter Qingdao']}
+        keywords={['about VETHY', 'Qingdao auto parts factory', 'Chinese auto parts manufacturer']}
       />
-      <section className="bg-ink-900 text-white">
-        <div className="container-page py-14">
-          <h1 className="font-display text-4xl font-extrabold md:text-5xl">About VETHY</h1>
-          <p className="mt-3 max-w-3xl text-gray-300">Qingdao VETHY Industrial Co., Ltd. is a manufacturer and global exporter of automotive parts and HVAC components, headquartered in Qingdao, Shandong, China.</p>
+
+      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[#0a0c10] pt-32 pb-20 text-white">
+        <img src="/images/banner-about.svg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-90" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }} />
+        <div className="container-page relative">
+          <p className="eyebrow-light mb-4">About</p>
+          <h1 className="text-display-lg text-balance">Engineered in Qingdao. Trusted worldwide.</h1>
+          <p className="mt-5 max-w-2xl text-base text-white/80 sm:text-lg">A decade of building reliable wholesale supply chains for distributors, fleets and workshops across 60+ countries.</p>
         </div>
       </section>
-      <section className="container-page py-16 max-w-3xl space-y-8 text-ink-700 leading-relaxed">
-        <div>
-          <h2 className="font-display text-2xl font-bold text-ink-900">What we do</h2>
-          <p className="mt-3">VETHY supplies wholesale auto parts across 10 categories — engine, brake, cooling, suspension, electrical & lighting, body parts, filters & consumables, transmission, truck & commercial, and HVAC — to distributors, workshops and fleets in over 60 countries.</p>
+
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-narrow space-y-16">
+          <Block title="Who we are" body="Qingdao VETHY Industrial Co., Ltd. is an aftermarket auto parts manufacturer and exporter founded by a team of automotive engineers. We design, source and quality-control over 8,000 SKUs across ten core categories — engine, brake, cooling, electrical, suspension, body, filtration, transmission, truck and HVAC." />
+          <Block title="What we believe" body="Three principles drive every shipment. OE-equivalent quality on every SKU we ship. Transparent specifications and clear lead times. Long-term supply partnerships, not one-off transactions." />
+          <Block title="How we ship" body="From our consolidation warehouse in Qingdao, we serve global wholesalers with FCL and LCL container loads, mixed-SKU pallets, custom OEM packaging, barcoding, and full export documentation. Lead times typically run 15–35 days depending on category." />
         </div>
-        <div>
-          <h2 className="font-display text-2xl font-bold text-ink-900">Quality</h2>
-          <p className="mt-3">Our supplier base is anchored in IATF 16949 and ISO 9001 quality systems. Regulated categories carry ECE R90 (brake friction), ECE R112 / DOT (lighting) and E-mark approvals as relevant.</p>
-        </div>
-        <div>
-          <h2 className="font-display text-2xl font-bold text-ink-900">Logistics</h2>
-          <p className="mt-3">All shipments leave from Qingdao Port with direct sailings to Los Angeles, Hamburg, Santos, Durban, Jebel Ali and 30+ other global ports. We consolidate mixed SKUs into 20'/40' containers and offer LCL groupage for new buyers.</p>
-        </div>
-        <div>
-          <h2 className="font-display text-2xl font-bold text-ink-900">Brands</h2>
-          <p className="mt-3">VETHY operates the global parking AC brand <a href="https://www.cooldrivepro.com" target="_blank" rel="noopener">CoolDrivePro</a>, recognised among long-haul truck distributors in North America, Europe, Latin America and the Middle East.</p>
-        </div>
-        <div>
-          <h2 className="font-display text-2xl font-bold text-ink-900">Contact</h2>
-          <p className="mt-3">sales@vethy.com.cn — replies in one business day in English, Spanish, Russian, Arabic, Portuguese, French and German.</p>
+      </section>
+
+      <section className="bg-[#0a0c10] py-24 text-white sm:py-32">
+        <div className="container-page text-center">
+          <p className="eyebrow-light mb-4">Partner with VETHY</p>
+          <h2 className="text-display-md text-balance">Build your aftermarket business on a supplier you can count on.</h2>
+          <div className="mt-8 flex justify-center gap-3">
+            <Link to="/contact" className="btn-pill-light">Talk to sales</Link>
+            <Link to="/wholesale" className="btn-pill-ghost">Wholesale program</Link>
+          </div>
         </div>
       </section>
     </>
+  );
+}
+
+function Block({ title, body }: { title: string; body: string }) {
+  return (
+    <div>
+      <p className="eyebrow mb-3">{title}</p>
+      <p className="text-[19px] leading-[1.7] text-ink-700">{body}</p>
+    </div>
   );
 }

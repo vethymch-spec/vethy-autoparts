@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgrad" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#15181d"/>
+      <stop offset="55%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="1800" cy="742.5000000000001" r="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="hsla(8, 95%, 55%, 0.55)"/>
+      <stop offset="35%" stop-color="hsla(8, 90%, 45%, 0.18)"/>
+      <stop offset="100%" stop-color="hsla(8, 90%, 45%, 0)"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#bgrad)"/>
+  <rect width="2400" height="1350" fill="url(#glow)"/>
+  <rect y="944.9999999999999" width="2400" height="405" fill="url(#floor)"/>
+  <g transform="translate(960,675)" opacity="0.92">
+  <rect width="600" height="320" rx="8" fill="#0d1014" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <rect x="40" y="-50" width="520" height="80" rx="6" fill="#16191f"/>
+  <rect x="80" y="-30" width="80" height="40" rx="3" fill="#0a0c10" stroke="rgba(200,16,46,0.4)"/><rect x="200" y="-30" width="80" height="40" rx="3" fill="#0a0c10" stroke="rgba(200,16,46,0.4)"/><rect x="320" y="-30" width="80" height="40" rx="3" fill="#0a0c10" stroke="rgba(200,16,46,0.4)"/><rect x="440" y="-30" width="80" height="40" rx="3" fill="#0a0c10" stroke="rgba(200,16,46,0.4)"/>
+  <circle cx="30" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="105" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="180" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="255" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="330" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="405" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="480" cy="20" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="555" cy="20" r="4" fill="rgba(255,255,255,0.2)"/>
+  <path d="M0,80 Q-40,80 -40,140 L-40,260 Q-40,300 0,300" fill="none" stroke="rgba(200,16,46,0.4)" stroke-width="6"/>
+</g>
+  <line x1="0" y1="972" x2="2400" y2="972" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+</svg>
