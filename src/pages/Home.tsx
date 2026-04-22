@@ -117,29 +117,29 @@ export default function Home() {
         align="bottom"
       />
 
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-[#0a0c10] py-24 text-white sm:py-32">
         <div className="container-page">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-3">Featured</p>
-            <h2 className="text-display-md text-ink-900">Best-selling SKUs.</h2>
-            <p className="mt-4 text-base text-ink-500 sm:text-lg">Eight of our most-requested parts across global markets.</p>
+            <h2 className="text-display-md">Best-selling SKUs.</h2>
+            <p className="mt-4 text-base text-white/70 sm:text-lg">Eight of our most-requested parts across global markets.</p>
           </div>
           <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {products.slice(0, 8).map((p, i) => (
-              <Link key={p.slug} to={`/products/${p.slug}`} className={i < 2 ? 'group tile-dark sm:col-span-2' : 'group tile'}>
+              <Link key={p.slug} to={`/products/${p.slug}`} className={i < 2 ? 'group tile sm:col-span-2' : 'group tile'}>
                 <img src={`/images/product-${p.slug}.svg`} alt={p.name} className="tile-img" loading="lazy" />
                 <div className="tile-body">
-                  <p className={i < 2 ? 'eyebrow-light' : 'eyebrow'}>{p.category.replace(/-/g, ' ')}</p>
-                  <h3 className={`mt-2 font-display text-2xl font-bold leading-tight ${i < 2 ? 'text-white' : 'text-ink-900'}`}>{p.name}</h3>
+                  <p className="eyebrow-light">{p.category.replace(/-/g, ' ')}</p>
+                  <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-white">{p.name}</h3>
                 </div>
                 <div className="tile-foot">
-                  <span className={`text-[13px] font-medium ${i < 2 ? 'text-white/80' : 'text-ink-700'}`}>MOQ {p.moq} →</span>
+                  <span className="text-[13px] font-medium text-white/80">MOQ {p.moq} →</span>
                 </div>
               </Link>
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link to="/products" className="btn-pill-dark">View all products</Link>
+            <Link to="/products" className="btn-pill-light">View all products</Link>
           </div>
         </div>
       </section>
@@ -179,15 +179,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f7] py-24 sm:py-32">
+      <section className="bg-[#0a0c10] py-24 text-white sm:py-32">
         <div className="container-page">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-3">Insights</p>
-            <h2 className="text-display-md text-ink-900">From the VETHY desk.</h2>
+            <h2 className="text-display-md">From the VETHY desk.</h2>
           </div>
           <div className="mt-16 grid gap-5 md:grid-cols-3">
             {blogPosts.slice(0, 3).map((p) => (
-              <Link key={p.slug} to={`/blog/${p.slug}`} className="group tile bg-white">
+              <Link key={p.slug} to={`/blog/${p.slug}`} className="group tile">
                 <img src={`/images/blog-${p.slug}.svg`} alt={p.title} className="tile-img" loading="lazy" />
                 <div className="tile-body">
                   <p className="eyebrow-light">{p.category}</p>

@@ -48,12 +48,12 @@ export default function CategoryPage() {
         </section>
       )}
 
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-[#0a0c10] py-24 text-white sm:py-32">
         <div className="container-page">
           <p className="eyebrow mb-3">Featured products</p>
-          <h2 className="text-display-md text-ink-900">{matched.length} SKUs in stock.</h2>
+          <h2 className="text-display-md">{matched.length} SKUs in stock.</h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {matched.length === 0 && <p className="text-ink-500">Specific SKUs available on request. Please contact sales for a full catalog.</p>}
+            {matched.length === 0 && <p className="text-white/60">Specific SKUs available on request. Please contact sales for a full catalog.</p>}
             {matched.map((p) => (
               <Link key={p.slug} to={`/products/${p.slug}`} className="group tile">
                 <img src={`/images/product-${p.slug}.svg`} alt={p.name} className="tile-img" loading="lazy" />
@@ -65,7 +65,7 @@ export default function CategoryPage() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link to="/contact" className="btn-pill-dark">Request quote</Link>
+            <Link to="/contact" className="btn-pill-light">Request quote</Link>
           </div>
         </div>
       </section>

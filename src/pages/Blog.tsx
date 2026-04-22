@@ -22,7 +22,7 @@ export function BlogIndex() {
         </div>
       </section>
 
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-[#0a0c10] py-24 text-white sm:py-32">
         <div className="container-page">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((p) => (
