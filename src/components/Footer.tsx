@@ -6,14 +6,14 @@ import { markets } from '../data/markets';
 export function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="bg-white text-ink-700">
-      <div className="container-page hairline py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <Link to="/" className="flex items-center gap-2 font-display text-[15px] font-semibold tracking-wide text-ink-900">
-              <span className="inline-block h-5 w-5 rounded-sm bg-brand" /> VETHY
+    <footer className="bg-white">
+      <div className="container-page hairline-b py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-2 font-display text-[15px] font-medium text-ink-900">
+              <span className="inline-block h-[14px] w-[14px] bg-ink-900" /> VETHY
             </Link>
-            <p className="mt-4 text-[13px] leading-relaxed text-ink-500">Qingdao VETHY Industrial Co., Ltd. — wholesale auto parts manufacturer & exporter. Sister site: <a href="https://www.cooldrivepro.com" className="text-ink-900 underline-offset-4 hover:underline">CoolDrivePro</a>.</p>
+            <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-ink-600">Qingdao VETHY Industrial Co., Ltd. — wholesale auto parts manufacturer & exporter serving 60+ countries. Sister brand for parking air conditioners: <a href="https://www.cooldrivepro.com" className="text-ink-900 underline underline-offset-2 hover:text-ink-600">CoolDrivePro</a>.</p>
           </div>
           <FooterCol title={t('footer.categories', 'Categories')}>
             {categories.slice(0, 6).map((c) => <FooterLink key={c.slug} to={`/categories/${c.slug}`}>{c.name}</FooterLink>)}
@@ -29,10 +29,10 @@ export function Footer() {
           </FooterCol>
         </div>
       </div>
-      <div className="hairline">
+      <div>
         <div className="container-page flex flex-col items-start justify-between gap-2 py-6 text-[12px] text-ink-500 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} Qingdao VETHY Industrial Co., Ltd.</span>
-          <span>Designed & built in Qingdao, China.</span>
+          <span>Qingdao · Shandong · China</span>
         </div>
       </div>
     </footer>
@@ -42,12 +42,12 @@ export function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-900">{title}</p>
-      <ul className="mt-4 space-y-2.5 text-[13px]">{children}</ul>
+      <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink-900">{title}</p>
+      <ul className="mt-5 space-y-3 text-[13px]">{children}</ul>
     </div>
   );
 }
 
 function FooterLink({ to, children }: { to: string; children: React.ReactNode }) {
-  return <li><Link to={to} className="text-ink-500 hover:text-ink-900">{children}</Link></li>;
+  return <li><Link to={to} className="text-ink-600 hover:text-ink-900 transition">{children}</Link></li>;
 }

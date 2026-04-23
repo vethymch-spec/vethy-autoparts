@@ -1,0 +1,191 @@
+{
+  "brands": [
+    {
+      "brand": "Caterpillar",
+      "country": "USA",
+      "models": ["320C", "320D", "320D2", "323D2", "325C", "325D", "330C", "330D", "336D", "336E", "349E"],
+      "parts": [
+        {"oe":"1R-0750","name":"燃油滤芯 (高效) Fuel Filter","category":"filter","fit":"C7/C9/C13/C15; 320D/330D/336D","years":"2005–","note":"Tier3/Tier4 通用","source":"A"},
+        {"oe":"1R-0751","name":"机油滤芯 Oil Filter","category":"filter","fit":"3116/3126/C7/C9","years":"1995–","note":"旋装","source":"A"},
+        {"oe":"326-1644","name":"燃油滤芯 (Tier4)","category":"filter","fit":"C4.4/C6.6/C7.1; 320E/323D2/336E","years":"2011–","note":"替换 1R-0750 on Tier4","source":"A"},
+        {"oe":"326-1643","name":"燃油水分离滤 Fuel/Water Sep.","category":"filter","fit":"C4.4/C6.6/C7.1","years":"2011–","note":"配 326-1644","source":"A"},
+        {"oe":"093-7521","name":"空气滤芯 外 Air Filter Outer","category":"filter","fit":"320C/320D/325C/325D","years":"2003–","note":"Donaldson P532966","source":"A/B"},
+        {"oe":"093-7522","name":"空气滤芯 内 Air Filter Inner","category":"filter","fit":"320C/320D/325C/325D","years":"2003–","note":"Donaldson P533781","source":"A/B"},
+        {"oe":"5I-8670","name":"先导滤芯 Pilot Filter","category":"filter","fit":"320B/320C/325B","years":"1998–2008","note":"—","source":"A"},
+        {"oe":"438-5386","name":"液压回油滤 Hyd Return","category":"filter","fit":"320D2/323D2/330D2","years":"2013–","note":"—","source":"A"},
+        {"oe":"093-7554","name":"液压滤芯 Hyd Filter","category":"filter","fit":"320B/320C","years":"1998–2006","note":"—","source":"A"},
+        {"oe":"229-9977","name":"支重轮 单凸缘 Track Roller SF","category":"undercarriage","fit":"320C/320D","years":"2003–","note":"Single flange","source":"A"},
+        {"oe":"229-9978","name":"支重轮 双凸缘 Track Roller DF","category":"undercarriage","fit":"320C/320D","years":"2003–","note":"Double flange","source":"A"},
+        {"oe":"230-7935","name":"拖链轮 Carrier Roller","category":"undercarriage","fit":"320C/320D","years":"2003–","note":"—","source":"A"},
+        {"oe":"239-8216","name":"引导轮 Front Idler","category":"undercarriage","fit":"320D","years":"2007–","note":"—","source":"A"},
+        {"oe":"241-5287","name":"驱动齿 Sprocket Segment","category":"undercarriage","fit":"320D/323D","years":"2007–","note":"—","source":"A"},
+        {"oe":"234-4628","name":"链条总成 Track Chain","category":"undercarriage","fit":"320D (SALT)","years":"2007–","note":"按 S/N","source":"A"},
+        {"oe":"256-3680","name":"履带板 600mm Track Shoe","category":"undercarriage","fit":"320D","years":"2007–","note":"3-grouser","source":"A"},
+        {"oe":"7C-6208","name":"缸套 Cylinder Liner","category":"engine","fit":"3306","years":"1980–","note":"—","source":"A"},
+        {"oe":"7W-3400","name":"活塞总成 Piston Kit","category":"engine","fit":"3306DI","years":"1985–","note":"含环/销","source":"A"},
+        {"oe":"2W-8424","name":"主轴瓦 Main Bearing","category":"engine","fit":"3306","years":"—","note":"STD","source":"A"},
+        {"oe":"6I-2499","name":"水泵 Water Pump","category":"cooling","fit":"3306/3406","years":"—","note":"—","source":"A"},
+        {"oe":"174-1070","name":"风扇 Fan","category":"cooling","fit":"325C/330C","years":"2000–","note":"—","source":"A"},
+        {"oe":"6V-9746","name":"浮动油封 Duo-Cone Seal","category":"seal","fit":"320 终传动/回转","years":"—","note":"—","source":"A"},
+        {"oe":"153-0443","name":"压力传感器 Pressure Sensor","category":"electrical","fit":"320C/325C","years":"2003–","note":"—","source":"A"},
+        {"oe":"3E-7698","name":"水温传感器 Temp Sensor","category":"electrical","fit":"3306/3406","years":"—","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "Komatsu",
+      "country": "Japan",
+      "models": ["PC200-6","PC200-7","PC200-8","PC220-7","PC220-8","PC300-7","PC300-8","PC350-7","PC400-8","PC450-8"],
+      "parts": [
+        {"oe":"600-319-3750","name":"燃油滤芯 Fuel Filter","category":"filter","fit":"PC200-8/PC220-8/PC300-8 (SAA6D107E)","years":"2007–","note":"Tier3","source":"A"},
+        {"oe":"600-319-3610","name":"燃油预滤 水分离 Pre-Fuel","category":"filter","fit":"PC200-8/PC220-8","years":"2007–","note":"—","source":"A"},
+        {"oe":"600-211-1231","name":"机油滤芯 Oil Filter","category":"filter","fit":"PC200-7/PC200-8/PC220-7","years":"2005–","note":"—","source":"A"},
+        {"oe":"600-211-1230","name":"机油滤芯 旧款","category":"filter","fit":"PC200-6/PC220-6","years":"1996–2005","note":"—","source":"A"},
+        {"oe":"600-185-4110","name":"空气滤芯 外","category":"filter","fit":"PC200-8/PC220-8","years":"2007–","note":"Donaldson P785590","source":"A/B"},
+        {"oe":"600-185-4120","name":"空气滤芯 内","category":"filter","fit":"PC200-8/PC220-8","years":"2007–","note":"Donaldson P785589","source":"A/B"},
+        {"oe":"07063-01210","name":"液压回油滤","category":"filter","fit":"PC200-6/PC220-6","years":"1996–2005","note":"—","source":"A"},
+        {"oe":"207-60-71183","name":"液压回油滤","category":"filter","fit":"PC300-7/PC350-7","years":"2003–2010","note":"—","source":"A"},
+        {"oe":"21W-60-41121","name":"先导滤芯","category":"filter","fit":"PC200-8/PC220-8","years":"2007–","note":"—","source":"A"},
+        {"oe":"6738-21-3310","name":"缸套 Cylinder Liner","category":"engine","fit":"SAA6D102E (PC200-7)","years":"2003–","note":"—","source":"A"},
+        {"oe":"6738-31-2111","name":"活塞 Piston","category":"engine","fit":"SAA6D102E","years":"2003–","note":"—","source":"A"},
+        {"oe":"6738-31-3040","name":"活塞环组 Ring Set","category":"engine","fit":"SAA6D102E","years":"2003–","note":"—","source":"A"},
+        {"oe":"6736-61-1202","name":"水泵 Water Pump","category":"cooling","fit":"SAA6D102E (PC200-7/PC220-7)","years":"2003–2010","note":"—","source":"A"},
+        {"oe":"6754-61-1100","name":"水泵 Water Pump","category":"cooling","fit":"SAA6D107E (PC200-8)","years":"2007–","note":"—","source":"A"},
+        {"oe":"20Y-03-41121","name":"水箱散热器 Radiator","category":"cooling","fit":"PC200-8","years":"2007–","note":"按 S/N","source":"A/D"},
+        {"oe":"20Y-30-00560","name":"支重轮 Track Roller","category":"undercarriage","fit":"PC200-7/PC200-8","years":"2005–","note":"—","source":"A"},
+        {"oe":"20Y-30-00022","name":"拖链轮 Carrier Roller","category":"undercarriage","fit":"PC200-7/PC200-8","years":"2005–","note":"—","source":"A"},
+        {"oe":"20Y-30-00440","name":"引导轮 Front Idler","category":"undercarriage","fit":"PC200-7/PC200-8","years":"2005–","note":"—","source":"A"},
+        {"oe":"20Y-27-31271","name":"驱动齿 Sprocket","category":"undercarriage","fit":"PC200-7/PC200-8","years":"2005–","note":"—","source":"A"},
+        {"oe":"20Y-32-31120","name":"链条总成","category":"undercarriage","fit":"PC200-8","years":"2007–","note":"—","source":"A"},
+        {"oe":"20Y-32-31311","name":"履带板 600mm Triple Grouser","category":"undercarriage","fit":"PC200-8","years":"2007–","note":"—","source":"A"},
+        {"oe":"708-2L-00500","name":"主液压泵 HPV95","category":"hydraulic","fit":"PC200-7","years":"2003–2010","note":"Kawasaki 平台","source":"A"},
+        {"oe":"708-2L-00600","name":"主液压泵 HPV95","category":"hydraulic","fit":"PC200-8","years":"2007–","note":"—","source":"A"},
+        {"oe":"706-7G-01040","name":"回转马达 Swing Motor","category":"hydraulic","fit":"PC200-7","years":"2003–2010","note":"—","source":"A"},
+        {"oe":"708-8F-00250","name":"行走马达 Travel Motor","category":"hydraulic","fit":"PC200-7","years":"2003–2010","note":"—","source":"A"},
+        {"oe":"723-40-71102","name":"主控阀 Main Control Valve","category":"hydraulic","fit":"PC200-7","years":"2003–2010","note":"—","source":"A"},
+        {"oe":"208-27-61220","name":"浮动油封 Duo-Cone Seal","category":"seal","fit":"PC200/PC300 终传动","years":"—","note":"—","source":"A"},
+        {"oe":"07000-12100","name":"O-ring P10","category":"seal","fit":"液压接头通用","years":"—","note":"—","source":"A"},
+        {"oe":"7861-93-1812","name":"水温传感器","category":"electrical","fit":"PC200-7/PC200-8","years":"2005–","note":"—","source":"A"},
+        {"oe":"7861-93-1420","name":"油压传感器","category":"electrical","fit":"PC200","years":"2005–","note":"—","source":"A"},
+        {"oe":"600-861-3420","name":"发电机 Alternator 24V 50A","category":"electrical","fit":"PC200-7","years":"2003–","note":"—","source":"A"},
+        {"oe":"600-813-4311","name":"启动马达 Starter 24V","category":"electrical","fit":"PC200-7 (6D102)","years":"2003–","note":"—","source":"A"},
+        {"oe":"7834-40-2003","name":"油门马达 Throttle Motor","category":"electrical","fit":"PC200-7","years":"2003–2010","note":"6D107","source":"A"}
+      ]
+    },
+    {
+      "brand": "Hitachi",
+      "country": "Japan",
+      "models": ["ZX200","ZX200-3","ZX240-3","ZX270-3","ZX330","ZX350"],
+      "parts": [
+        {"oe":"4676385","name":"液压回油滤芯","category":"filter","fit":"ZX200-3/ZX240-3/ZX270-3","years":"2007–","note":"—","source":"A"},
+        {"oe":"4448401","name":"先导滤芯","category":"filter","fit":"ZX200/ZX200-3","years":"2002–","note":"—","source":"A"},
+        {"oe":"4630525","name":"燃油滤芯","category":"filter","fit":"ZX200-3 (Isuzu AA-4HK1)","years":"2007–","note":"—","source":"A"},
+        {"oe":"4627133","name":"机油滤芯","category":"filter","fit":"ZX200-3/ZX240-3","years":"2007–","note":"—","source":"A"},
+        {"oe":"4286127","name":"空滤 外","category":"filter","fit":"ZX200/ZX200-3","years":"2002–","note":"Donaldson P821575","source":"A/B"},
+        {"oe":"4286128","name":"空滤 内","category":"filter","fit":"ZX200/ZX200-3","years":"2002–","note":"Donaldson P822858","source":"A/B"},
+        {"oe":"9218668","name":"水泵","category":"cooling","fit":"Isuzu 4HK1 (ZX200-3)","years":"2007–","note":"—","source":"A"},
+        {"oe":"8-97605-460-0","name":"活塞","category":"engine","fit":"Isuzu 4HK1","years":"2007–","note":"Isuzu OE","source":"A"},
+        {"oe":"9154047","name":"支重轮","category":"undercarriage","fit":"ZX200-3","years":"2007–","note":"—","source":"A"},
+        {"oe":"9154048","name":"拖链轮","category":"undercarriage","fit":"ZX200-3","years":"2007–","note":"—","source":"A"},
+        {"oe":"9218427","name":"引导轮","category":"undercarriage","fit":"ZX200-3","years":"2007–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "Volvo CE",
+      "country": "Sweden",
+      "models": ["EC210B","EC240B","EC290B","EC210D","EC220D","EC250D","EC360B","EC460B"],
+      "parts": [
+        {"oe":"VOE 11110683","name":"机油滤芯","category":"filter","fit":"EC210B/EC240B/EC290B (D6D/D7D)","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 21707132","name":"机油滤芯","category":"filter","fit":"EC210D/EC220D/EC250D (D6E/D8J)","years":"2012–","note":"Tier4","source":"A"},
+        {"oe":"VOE 20869725","name":"燃油滤芯","category":"filter","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 21620189","name":"燃油滤芯","category":"filter","fit":"EC210D/EC220D","years":"2012–","note":"—","source":"A"},
+        {"oe":"VOE 20875080","name":"燃油预滤 水分离","category":"filter","fit":"EC210D/EC220D","years":"2012–","note":"—","source":"A"},
+        {"oe":"VOE 11110673","name":"空气滤芯 外","category":"filter","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 11110674","name":"空气滤芯 内","category":"filter","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 14509379","name":"液压回油滤","category":"filter","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 14508017","name":"先导滤芯","category":"filter","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 14880494","name":"支重轮","category":"undercarriage","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 14880493","name":"拖链轮","category":"undercarriage","fit":"EC210B/EC240B","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"VOE 14514435","name":"引导轮","category":"undercarriage","fit":"EC210B","years":"2005–","note":"—","source":"A"},
+        {"oe":"VOE 20459420","name":"主液压泵 K3V112DT","category":"hydraulic","fit":"EC210B","years":"2005–","note":"Kawasaki OE","source":"A"},
+        {"oe":"VOE 14531612","name":"回转马达","category":"hydraulic","fit":"EC210B","years":"2005–","note":"—","source":"A"},
+        {"oe":"VOE 11110727","name":"水箱散热器","category":"cooling","fit":"EC210B","years":"2005–","note":"按 S/N","source":"A/D"},
+        {"oe":"VOE 14880376","name":"浮动油封 Duo-Cone","category":"seal","fit":"EC210B/EC240B 终传动","years":"—","note":"—","source":"A"},
+        {"oe":"VOE 11170324","name":"启动机 Starter","category":"electrical","fit":"EC210B","years":"2005–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "Liebherr",
+      "country": "Germany",
+      "models": ["R904C","R914C","R924","R924C","R934","R934C","R944","R944C"],
+      "parts": [
+        {"oe":"7381727","name":"机油滤芯","category":"filter","fit":"R924/R934/R944 (D934/D936)","years":"2005–","note":"—","source":"A"},
+        {"oe":"10044469","name":"燃油滤芯","category":"filter","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"10044373","name":"燃油预滤 水分离","category":"filter","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"10216898","name":"空气滤芯 外","category":"filter","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"10216899","name":"空气滤芯 内","category":"filter","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"10218968","name":"液压回油滤","category":"filter","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"9079081","name":"先导滤芯","category":"filter","fit":"R904C/R914C/R924C","years":"2005–","note":"—","source":"A"},
+        {"oe":"7026675","name":"水泵","category":"cooling","fit":"D934/D936","years":"2005–","note":"—","source":"A"},
+        {"oe":"10146692","name":"支重轮","category":"undercarriage","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"},
+        {"oe":"10146693","name":"拖链轮","category":"undercarriage","fit":"R934C/R944C","years":"2008–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "JCB",
+      "country": "UK",
+      "models": ["JS130","JS200","JS220","JS240","JS260"],
+      "parts": [
+        {"oe":"320/04133","name":"机油滤芯","category":"filter","fit":"Dieselmax 444; JS130/JS200","years":"2004–","note":"—","source":"A"},
+        {"oe":"320/07382","name":"机油滤芯 (EcoMax)","category":"filter","fit":"JS130/JS200 (Tier4)","years":"2012–","note":"—","source":"A"},
+        {"oe":"32/925994","name":"燃油滤芯","category":"filter","fit":"Dieselmax 444","years":"2004–2011","note":"—","source":"A"},
+        {"oe":"320/A7170","name":"燃油滤芯 (EcoMax)","category":"filter","fit":"EcoMax T4i","years":"2012–","note":"—","source":"A"},
+        {"oe":"320/A7171","name":"燃油预滤 水分离","category":"filter","fit":"EcoMax T4i","years":"2012–","note":"—","source":"A"},
+        {"oe":"32/919401","name":"空气滤芯 外","category":"filter","fit":"JS200 (3CX/4CX 共用)","years":"2004–","note":"—","source":"A"},
+        {"oe":"32/919402","name":"空气滤芯 内","category":"filter","fit":"JS200","years":"2004–","note":"—","source":"A"},
+        {"oe":"32/925346","name":"液压回油滤","category":"filter","fit":"JS200","years":"2004–","note":"—","source":"A"},
+        {"oe":"32/915500","name":"先导滤芯","category":"filter","fit":"JS200/JS240","years":"2004–","note":"—","source":"A"},
+        {"oe":"581/18076","name":"水泵","category":"cooling","fit":"Dieselmax 444","years":"2004–","note":"—","source":"A"},
+        {"oe":"333/J2417","name":"支重轮","category":"undercarriage","fit":"JS200/JS220","years":"2004–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "Case CE",
+      "country": "USA (CNH)",
+      "models": ["CX210","CX210B","CX240","CX240B","CX350"],
+      "parts": [
+        {"oe":"84228488","name":"机油滤芯","category":"filter","fit":"CX210/CX240 (Isuzu 6BG1/4HK1)","years":"2005–","note":"与 NH 共用","source":"A"},
+        {"oe":"87803261","name":"燃油滤芯","category":"filter","fit":"CX210B/CX240B","years":"2008–","note":"—","source":"A"},
+        {"oe":"87803262","name":"燃油预滤","category":"filter","fit":"CX210B/CX240B","years":"2008–","note":"—","source":"A"},
+        {"oe":"87517154","name":"空滤 外","category":"filter","fit":"CX210","years":"2005–","note":"—","source":"A"},
+        {"oe":"87517157","name":"空滤 内","category":"filter","fit":"CX210","years":"2005–","note":"—","source":"A"},
+        {"oe":"KNJ10410","name":"液压回油滤","category":"filter","fit":"CX210/CX240","years":"2005–","note":"—","source":"A"},
+        {"oe":"KHJ10410","name":"先导滤芯","category":"filter","fit":"CX210/CX240","years":"2005–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "New Holland CE",
+      "country": "USA (CNH)",
+      "models": ["E215","E215B","E245","E245B","E305"],
+      "parts": [
+        {"oe":"84228488","name":"机油滤芯","category":"filter","fit":"E215/E245 (与 Case CX 同平台)","years":"2005–","note":"—","source":"A"},
+        {"oe":"87803261","name":"燃油滤芯","category":"filter","fit":"E215B/E245B","years":"2008–","note":"—","source":"A"},
+        {"oe":"87517154","name":"空滤 外","category":"filter","fit":"E215","years":"2005–","note":"—","source":"A"},
+        {"oe":"84159550","name":"液压回油滤","category":"filter","fit":"E215/E245","years":"2005–","note":"—","source":"A"}
+      ]
+    },
+    {
+      "brand": "John Deere CE",
+      "country": "USA",
+      "models": ["200D","210G","210G LC","240D","270D"],
+      "parts": [
+        {"oe":"RE509672","name":"机油滤芯","category":"filter","fit":"PowerTech 6068 (200D/210G)","years":"2005–","note":"—","source":"A"},
+        {"oe":"RE525523","name":"燃油滤芯 (最终)","category":"filter","fit":"PowerTech 6068 Tier3","years":"2005–2011","note":"—","source":"A"},
+        {"oe":"RE541922","name":"燃油滤芯 Tier4","category":"filter","fit":"PowerTech PSX 6068","years":"2012–","note":"—","source":"A"},
+        {"oe":"RE539279","name":"燃油预滤 水分离","category":"filter","fit":"PowerTech PSX 6068","years":"2012–","note":"—","source":"A"},
+        {"oe":"AT332908","name":"空滤 外","category":"filter","fit":"200D/210G","years":"2005–","note":"—","source":"A"},
+        {"oe":"AT332909","name":"空滤 内","category":"filter","fit":"200D/210G","years":"2005–","note":"—","source":"A"},
+        {"oe":"4448402","name":"液压回油滤","category":"filter","fit":"200D/210G LC (Hitachi-based)","years":"2005–","note":"—","source":"A"}
+      ]
+    }
+  ]
+}

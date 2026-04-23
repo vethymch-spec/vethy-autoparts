@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>挖掘机配件图册 · Excavator Parts Catalog</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a2029;
+    --panel-2: #232b36;
+    --line: #2d3844;
+    --ink: #e6edf3;
+    --muted: #8b98a5;
+    --accent: #ff9100;
+    --accent-2: #ffc107;
+    --ok: #4caf50;
+    --warn: #ff7043;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  header { position: sticky; top: 0; z-index: 10; background: linear-gradient(180deg, #0f1419, #1a2029); border-bottom: 1px solid var(--line); padding: 16px 24px; }
+  header h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: .5px; }
+  header p { margin: 0; color: var(--muted); font-size: 13px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .filters select, .filters input { background: var(--panel-2); color: var(--ink); border: 1px solid var(--line); padding: 8px 12px; border-radius: 6px; font-size: 13px; min-width: 140px; }
+  .filters input { min-width: 220px; flex: 1; }
+  .stats { font-size: 12px; color: var(--muted); align-self: center; }
+  main { padding: 20px 24px 60px; }
+  .brand-head { display: flex; align-items: baseline; gap: 12px; margin: 28px 0 12px; border-left: 4px solid var(--accent); padding-left: 12px; }
+  .brand-head h2 { margin: 0; font-size: 22px; }
+  .brand-head .country { color: var(--muted); font-size: 13px; }
+  .brand-head .models { color: var(--accent-2); font-size: 12px; margin-left: auto; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .thumb { aspect-ratio: 1/1; background: #0a0e12; display: flex; align-items: center; justify-content: center; position: relative; }
+  .thumb img { max-width: 90%; max-height: 90%; object-fit: contain; }
+  .tier { position: absolute; top: 6px; right: 6px; font-size: 10px; padding: 2px 6px; border-radius: 3px; background: var(--ok); color: #000; font-weight: 700; }
+  .tier.tier-AB { background: #8bc34a; }
+  .tier.tier-AD { background: var(--warn); color: #fff; }
+  .tier.tier-D  { background: #f44336; color: #fff; }
+  .body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .oe { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; color: var(--accent-2); letter-spacing: .3px; cursor: pointer; user-select: all; }
+  .pname { font-size: 13px; font-weight: 600; line-height: 1.35; }
+  .fit { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .meta { display: flex; gap: 8px; font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .meta span { background: var(--panel-2); padding: 2px 6px; border-radius: 3px; }
+  .cat-filter { background: var(--panel-2); padding: 2px 6px; border-radius: 3px; color: var(--accent); }
+  .empty { text-align: center; color: var(--muted); padding: 60px; }
+  .legend { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .legend b { color: var(--ok); }
+  .copy-flash { position: fixed; top: 20px; right: 20px; background: var(--ok); color: #000; padding: 8px 14px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .copy-flash.show { opacity: 1; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🚜 挖掘机配件图册 · Excavator Parts Catalog</h1>
+  <p>覆盖 Caterpillar / Komatsu / Hitachi / Volvo CE / Liebherr / JCB / Case / New Holland / John Deere — 点击 OE 号可复制</p>
+  <div class="filters">
+    <select id="f-brand"><option value="">所有品牌</option></select>
+    <select id="f-category">
+      <option value="">所有品类</option>
+      <option value="filter">滤清器 Filter</option>
+      <option value="hydraulic">液压件 Hydraulic</option>
+      <option value="engine">发动机件 Engine</option>
+      <option value="undercarriage">行走系 Undercarriage</option>
+      <option value="cooling">冷却件 Cooling</option>
+      <option value="seal">密封件 Seal</option>
+      <option value="electrical">电气件 Electrical</option>
+    </select>
+    <input id="f-search" type="search" placeholder="搜索 OE 号 / 品名 / 机型..." />
+    <span class="stats" id="stats"></span>
+  </div>
+  <div class="legend">来源层级: <b>A</b> = OEM 官方目录 · <b style="color:#8bc34a">A/B</b> = OEM + 滤清交叉参照 · <b style="color:#ff7043">A/D</b> = 需按 S/N 复核</div>
+</header>
+
+<main id="app">
+  <div class="empty">加载中...</div>
+</main>
+
+<div class="copy-flash" id="copy-flash">已复制</div>
+
+<script>
+const CAT_LABEL = {
+  filter: '滤清器', hydraulic: '液压件', engine: '发动机',
+  undercarriage: '行走系', cooling: '冷却', seal: '密封', electrical: '电气'
+};
+const CAT_ICON = {
+  filter: 'images/category/filter.svg',
+  hydraulic: 'images/category/hydraulic.svg',
+  engine: 'images/category/engine.svg',
+  undercarriage: 'images/category/undercarriage.svg',
+  cooling: 'images/category/cooling.svg',
+  seal: 'images/category/seal.svg',
+  electrical: 'images/category/electrical.svg'
+};
+
+function oeToFile(oe) {
+  return oe.replace(/\//g, '-').replace(/\s+/g, '_');
+}
+
+function tierClass(src) {
+  if (src === 'A') return 'tier';
+  if (src === 'A/B') return 'tier tier-AB';
+  if (src === 'A/D') return 'tier tier-AD';
+  if (src === 'D') return 'tier tier-D';
+  return 'tier';
+}
+
+let DATA = null;
+
+async function load() {
+  const res = await fetch('data.json');
+  DATA = await res.json();
+  const bs = document.getElementById('f-brand');
+  DATA.brands.forEach(b => {
+    const o = document.createElement('option');
+    o.value = b.brand; o.textContent = b.brand;
+    bs.appendChild(o);
+  });
+  render();
+}
+
+function render() {
+  const brandF = document.getElementById('f-brand').value;
+  const catF = document.getElementById('f-category').value;
+  const q = document.getElementById('f-search').value.trim().toLowerCase();
+
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  let total = 0;
+
+  for (const b of DATA.brands) {
+    if (brandF && b.brand !== brandF) continue;
+    const parts = b.parts.filter(p => {
+      if (catF && p.category !== catF) return false;
+      if (q) {
+        const hay = (p.oe + ' ' + p.name + ' ' + p.fit + ' ' + p.note).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+    if (!parts.length) continue;
+    total += parts.length;
+
+    const head = document.createElement('div');
+    head.className = 'brand-head';
+    head.innerHTML = `<h2>${b.brand}</h2><span class="country">${b.country}</span><span class="models">机型: ${b.models.join(' · ')}</span>`;
+    app.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    for (const p of parts) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const realImg = `images/parts/${oeToFile(p.oe)}.jpg`;
+      const fallback = CAT_ICON[p.category] || CAT_ICON.filter;
+      card.innerHTML = `
+        <div class="thumb">
+          <img src="${realImg}" onerror="this.onerror=null;this.src='${fallback}';this.classList.add('is-fallback')" alt="${p.oe}" />
+          <span class="${tierClass(p.source)}">${p.source}</span>
+        </div>
+        <div class="body">
+          <div class="oe" title="点击复制" data-oe="${p.oe}">${p.oe}</div>
+          <div class="pname">${p.name}</div>
+          <div class="fit">🔧 ${p.fit}</div>
+          <div class="meta">
+            <span class="cat-filter">${CAT_LABEL[p.category] || p.category}</span>
+            <span>${p.years}</span>
+            ${p.note && p.note !== '—' ? `<span>${p.note}</span>` : ''}
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    }
+    app.appendChild(grid);
+  }
+
+  if (!total) {
+    app.innerHTML = '<div class="empty">没有匹配的配件，换个筛选条件试试</div>';
+  }
+  document.getElementById('stats').textContent = `共 ${total} 件`;
+}
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('.oe');
+  if (!el) return;
+  const oe = el.dataset.oe;
+  navigator.clipboard.writeText(oe).then(() => {
+    const flash = document.getElementById('copy-flash');
+    flash.textContent = '已复制: ' + oe;
+    flash.classList.add('show');
+    setTimeout(() => flash.classList.remove('show'), 1200);
+  });
+});
+
+document.getElementById('f-brand').addEventListener('change', render);
+document.getElementById('f-category').addEventListener('change', render);
+document.getElementById('f-search').addEventListener('input', render);
+
+load().catch(err => {
+  document.getElementById('app').innerHTML = '<div class="empty">加载 data.json 失败: ' + err.message + '<br>请用本地服务器打开 (如 <code>npx serve</code>)，或直接双击打开不可用时使用 file:// 协议配合现代浏览器。</div>';
+});
+</script>
+</body>
+</html>

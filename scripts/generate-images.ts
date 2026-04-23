@@ -1,6 +1,3 @@
-// Automotive + tech aesthetic. Blueprint grid, HUD overlays, cyan + red accents,
-// detailed mechanical silhouettes. No English labels except small "telemetry" text.
-
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
