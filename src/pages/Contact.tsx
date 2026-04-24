@@ -1,77 +1,44 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { RFQForm } from '../components/RFQForm';
 
 export default function Contact() {
-  const [done, setDone] = useState(false);
-
+  const jsonLd = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact VETHY', url: 'https://www.vethy.com.cn/contact' };
   return (
     <>
-      <SEO
-        title="Contact VETHY | Wholesale Auto Parts Quote Request"
-        description="Contact VETHY for wholesale auto parts quotes. Email sales@vethy.com.cn or submit your inquiry online. We respond within one working day, Monday to Saturday."
-        path="/contact"
-        keywords={['contact VETHY', 'wholesale auto parts quote', 'auto parts inquiry', 'China auto parts supplier contact']}
-      />
+      <SEO title="Contact VETHY | Wholesale Auto Parts Quote, RFQ & Sales" description="Send your wholesale auto parts wishlist or OE references to VETHY. We respond with consolidated container pricing within 24 hours." path="/contact" keywords={['contact VETHY', 'auto parts RFQ', 'wholesale auto parts quote']} jsonLd={jsonLd} />
 
-      <section className="pt-28 pb-16 bg-ink-050">
-        <div className="container-page">
-          <nav className="text-[12px] text-ink-500"><Link to="/" className="hover:text-ink-900">Home</Link> / <span className="text-ink-900">Contact</span></nav>
-          <p className="eyebrow mt-6 mb-3">Contact</p>
-          <h1 className="text-display-lg text-ink-900 text-balance max-w-3xl">Talk to sales.</h1>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-600 sm:text-base">Tell us your target categories, target markets and container plans. We respond within one working day.</p>
+      <section className="bg-brand text-white">
+        <div className="container-page py-12">
+          <nav className="text-[12px] text-white/75"><Link to="/" className="hover:text-white">Home</Link> / <span className="text-white">Contact</span></nav>
+          <h1 className="mt-3 text-display-lg text-balance">Send your wishlist. Get a quote in 24 hours.</h1>
+          <p className="mt-3 max-w-2xl text-[14px] text-white/85">Tell us what you need — SKU list, OE references, target market — and we'll respond with consolidated container pricing.</p>
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="container-page">
-          <div className="grid gap-16 lg:grid-cols-2">
-            <div>
-              <p className="eyebrow mb-3">Direct</p>
-              <h2 className="font-display text-[22px] font-medium text-ink-900 sm:text-[26px]">We're here.</h2>
-              <dl className="mt-8 space-y-6 text-[15px]">
-                <div><dt className="text-ink-500">Email</dt><dd className="mt-1 font-display text-[17px] font-medium text-ink-900">sales@vethy.com.cn</dd></div>
-                <div><dt className="text-ink-500">WhatsApp</dt><dd className="mt-1 font-display text-[17px] font-medium text-ink-900">Available on request</dd></div>
-                <div><dt className="text-ink-500">Office</dt><dd className="mt-1 font-display text-[17px] font-medium text-ink-900">Qingdao, Shandong, China</dd></div>
-                <div><dt className="text-ink-500">Hours</dt><dd className="mt-1 font-display text-[17px] font-medium text-ink-900">Mon–Sat · 9:00–18:00 CST (UTC+8)</dd></div>
-              </dl>
+      <section className="bg-white py-14">
+        <div className="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <RFQForm />
+          <aside className="space-y-6">
+            <div className="rounded-lg border border-ink-200 bg-ink-050 p-6">
+              <p className="eyebrow mb-2">Direct contact</p>
+              <h2 className="font-display text-[18px] font-bold text-ink-900">Sales</h2>
+              <p className="mt-3 text-[14px] text-ink-700">Email · <a href="mailto:sales@vethy.com.cn" className="font-semibold text-brand hover:underline">sales@vethy.com.cn</a></p>
+              <p className="mt-1 text-[14px] text-ink-700">WhatsApp · <span className="font-semibold text-ink-900">+86 138 0000 0000</span></p>
             </div>
-
-            <div className="bg-ink-050 p-10">
-              {done ? (
-                <div className="py-12 text-center">
-                  <p className="eyebrow mb-3">Received</p>
-                  <h2 className="font-display text-[22px] font-medium text-ink-900">Thank you.</h2>
-                  <p className="mt-3 text-[15px] text-ink-600">We'll respond within one working day.</p>
-                </div>
-              ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setDone(true); }} className="grid gap-5">
-                  <Field label="Company" name="company" />
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <Field label="Name" name="name" />
-                    <Field label="Email" name="email" type="email" />
-                  </div>
-                  <Field label="Country" name="country" />
-                  <div>
-                    <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink-500">Inquiry</label>
-                    <textarea name="message" rows={5} className="mt-2 w-full border border-ink-200 bg-white px-4 py-3 text-[15px] outline-none focus:border-ink-900" required />
-                  </div>
-                  <button type="submit" className="btn-dark mt-2">Send inquiry</button>
-                </form>
-              )}
+            <div className="rounded-lg border border-ink-200 bg-white p-6">
+              <p className="eyebrow mb-2">Address</p>
+              <h2 className="font-display text-[18px] font-bold text-ink-900">Qingdao VETHY Industrial Co., Ltd.</h2>
+              <p className="mt-2 text-[14px] text-ink-700">Qingdao, Shandong, China</p>
+              <p className="mt-1 text-[14px] text-ink-700">Working hours: Mon–Sat, 09:00–18:00 (UTC+8)</p>
             </div>
-          </div>
+            <div className="rounded-lg border border-ink-200 bg-white p-6">
+              <p className="eyebrow mb-2">Languages</p>
+              <p className="text-[13px] text-ink-700">English · Español · Русский · العربية · Português · Français · Deutsch · 中文</p>
+            </div>
+          </aside>
         </div>
       </section>
     </>
-  );
-}
-
-function Field({ label, name, type = 'text' }: { label: string; name: string; type?: string }) {
-  return (
-    <div>
-      <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-ink-500">{label}</label>
-      <input name={name} type={type} className="mt-2 w-full border border-ink-200 bg-white px-4 py-3 text-[15px] outline-none focus:border-ink-900" required />
-    </div>
   );
 }

@@ -4,37 +4,50 @@
 
 @layer base {
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body { @apply font-body bg-ink-050 text-ink-900 antialiased; font-feature-settings: 'ss01', 'cv11'; }
-  h1, h2, h3, h4 { @apply font-display tracking-tight; font-weight: 500; }
-  ::selection { background: #141414; color: #fff; }
+  body { @apply font-body bg-white text-ink-900 antialiased; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  ::selection { background: #ff6a00; color: #fff; }
 }
 
 @layer components {
-  .container-page { @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12; }
-  .container-narrow { @apply mx-auto w-full max-w-3xl px-5 sm:px-8; }
+  .container-page { @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8; }
+  .container-narrow { @apply mx-auto w-full max-w-3xl px-4 sm:px-6; }
 
-  .btn { @apply inline-flex items-center justify-center px-7 py-3 text-[13px] font-medium tracking-wide transition-colors duration-300; }
+  .btn { @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-[14px] font-semibold transition-colors duration-200; }
+  .btn-accent { @apply btn bg-accent text-white hover:bg-accent-dark; }
+  .btn-brand { @apply btn bg-brand text-white hover:bg-brand-dark; }
+  .btn-outline { @apply btn border border-ink-300 bg-white text-ink-900 hover:border-brand hover:text-brand; }
+  .btn-ghost { @apply btn bg-transparent text-brand hover:bg-brand-soft; }
+  .btn-link { @apply inline-flex items-center gap-1 text-[13px] font-semibold text-brand hover:text-brand-dark transition; }
   .btn-dark { @apply btn bg-ink-900 text-white hover:bg-ink-800; }
-  .btn-light { @apply btn bg-white text-ink-900 border border-ink-900 hover:bg-ink-900 hover:text-white; }
-  .btn-ghost { @apply btn bg-transparent text-ink-900 border border-ink-300 hover:border-ink-900; }
-  .btn-link { @apply inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-900 hover:text-ink-600 transition; }
 
-  .panel { @apply relative flex min-h-screen w-full flex-col overflow-hidden bg-ink-050; }
-  .panel-bg { @apply absolute inset-0 h-full w-full object-cover; }
+  .card { @apply flex flex-col overflow-hidden rounded-lg border border-ink-200 bg-white transition-shadow duration-200 hover:shadow-card-hover; }
+  .card-img { @apply aspect-[4/3] w-full bg-ink-050 object-cover; }
+  .card-body { @apply flex flex-col gap-1.5 px-4 pt-4 pb-5; }
 
-  .card { @apply relative flex flex-col overflow-hidden bg-white transition-colors duration-300; }
-  .card-img { @apply aspect-[4/3] w-full bg-ink-100 object-cover; }
-  .card-body { @apply flex flex-col gap-2 px-1 pt-5 pb-2; }
+  .pill { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide; }
+  .pill-sale { @apply pill bg-accent/15 text-accent-dark; }
+  .pill-new { @apply pill bg-brand/10 text-brand; }
+  .pill-free { @apply pill bg-emerald-50 text-emerald-700; }
 
-  .eyebrow { @apply text-[11px] font-medium uppercase tracking-[0.22em] text-ink-500; }
-  .eyebrow-dark { @apply text-[11px] font-medium uppercase tracking-[0.22em] text-ink-900; }
+  .eyebrow { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-brand; }
+  .eyebrow-muted { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-ink-500; }
   .hairline { @apply border-t border-ink-200; }
   .hairline-b { @apply border-b border-ink-200; }
+
+  .nav-link { @apply text-[14px] font-medium text-white/90 hover:text-white transition; }
+  .util-link { @apply text-[12px] text-white/80 hover:text-white transition; }
+
+  .price { @apply font-display text-[20px] font-bold text-ink-900; }
+  .price-strike { @apply text-[13px] font-medium text-ink-500 line-through; }
+
+  .stars { @apply inline-flex items-center gap-0.5 text-[12px] text-amber-500; }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .glass-light { background: rgba(250,250,250,0.8); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); }
+  .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
 }
 
 [dir='rtl'] { direction: rtl; }

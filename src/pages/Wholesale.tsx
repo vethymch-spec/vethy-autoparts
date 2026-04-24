@@ -1,67 +1,65 @@
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 
-const benefits = [
-  { title: 'Container-load pricing', body: 'FCL discounts on 20ft and 40ft loads. Mixed pallets across categories on a single B/L.' },
-  { title: 'Low MOQ on consolidated orders', body: 'From 20 pcs per SKU when consolidated within a container. Perfect for distributors testing new lines.' },
-  { title: 'Custom OEM packaging', body: 'Your brand, your color, your barcode. Free design support on orders above 1×40HQ.' },
-  { title: 'Door-to-door logistics', body: 'FCL, LCL, sea-rail to Central Asia, and air freight options. Full export documentation included.' },
-  { title: 'Quality assurance', body: 'IATF 16949 facility, ECE R90 brake pads, ISO/CE certifications. Pre-shipment inspection on every container.' },
-  { title: 'Long-term partnership', body: 'Dedicated account manager, quarterly market briefings, and exclusive territory protection on flagship lines.' },
-];
-
 export default function Wholesale() {
-  const jsonLd = { '@context': 'https://schema.org', '@type': 'Service', name: 'VETHY Wholesale Auto Parts Program', provider: { '@type': 'Organization', name: 'Qingdao VETHY Industrial Co., Ltd.' }, areaServed: 'Worldwide', serviceType: 'Wholesale auto parts export' };
+  const jsonLd = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Wholesale Program', url: 'https://www.vethy.com.cn/wholesale' };
   return (
     <>
-      <SEO
-        title="Wholesale Auto Parts Program | VETHY Container Export from China"
-        description="VETHY wholesale program: container-load pricing, low MOQ on consolidated orders, custom OEM packaging, door-to-door logistics, IATF 16949 / ECE R90 certifications. Built for global distributors."
-        path="/wholesale"
-        keywords={['wholesale auto parts program', 'auto parts container export', 'OEM packaging auto parts', 'auto parts MOQ wholesale', 'China auto parts distributor']}
-        jsonLd={jsonLd}
-      />
+      <SEO title="Wholesale Program | VETHY Auto Parts MOQ, Packaging & Shipping" description="VETHY's wholesale program: MOQ from 20 pcs on mixed containers, free OEM packaging on 40HQ orders, FCL/LCL/rail freight worldwide." path="/wholesale" keywords={['auto parts wholesale program', 'OEM packaging auto parts', 'mixed container auto parts']} jsonLd={jsonLd} />
 
-      <section className="pt-28 pb-16 bg-ink-050">
-        <div className="container-page">
-          <nav className="text-[12px] text-ink-500"><Link to="/" className="hover:text-ink-900">Home</Link> / <span className="text-ink-900">Wholesale</span></nav>
-          <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-            <div className="flex flex-col justify-end">
-              <p className="eyebrow mb-3">Wholesale</p>
-              <h1 className="text-display-lg text-ink-900 text-balance">Container loads.<br/>Built for distributors.</h1>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-600 sm:text-base">A wholesale program engineered around the realities of the global aftermarket — from 20ft trial loads to multi-container monthly programs.</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/contact" className="btn-dark">Request catalog</Link>
-                <Link to="/products" className="btn-ghost">Browse products</Link>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-100">
-              <img src="/images/banner-wholesale.svg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-            </div>
-          </div>
+      <section className="bg-brand text-white">
+        <div className="container-page py-12">
+          <nav className="text-[12px] text-white/75"><Link to="/" className="hover:text-white">Home</Link> / <span className="text-white">Wholesale</span></nav>
+          <h1 className="mt-3 text-display-lg text-balance">A wholesale program built for distributors, not for retail.</h1>
+          <p className="mt-4 max-w-2xl text-[15px] text-white/85">Mixed-pallet containers, OEM packaging from your first order, and an account manager in your time zone.</p>
+          <Link to="/contact" className="btn-accent mt-6">Request a quote</Link>
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-14">
+        <div className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            ['MOQ', 'From 20 pcs per SKU on mixed containers; 500 pcs single-SKU.'],
+            ['Lead time', '25–35 days typical; 3–7 days for stocked SKUs.'],
+            ['Packaging', 'Color box, brown carton, or your full OEM design — free on 40HQ+.'],
+            ['Shipping', 'FCL · LCL · Rail · Air. FOB Qingdao or DAP your warehouse.'],
+            ['Payment', '30% TT + 70% against B/L copy. L/C accepted on orders > USD 50k.'],
+            ['Quality', 'IATF 16949, ECE R90, E-mark, DOT — third-party inspection welcome.'],
+          ].map(([t, d]) => (
+            <div key={t} className="rounded-lg border border-ink-200 bg-white p-6">
+              <p className="eyebrow mb-2">{t}</p>
+              <p className="text-[14px] leading-relaxed text-ink-700">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-ink-050 py-14">
         <div className="container-page">
-          <div className="grid gap-px bg-ink-200 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((b) => (
-              <div key={b.title} className="bg-white p-8">
-                <h3 className="font-display text-[18px] font-medium text-ink-900">{b.title}</h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-ink-600">{b.body}</p>
-              </div>
+          <p className="eyebrow mb-2">How it works</p>
+          <h2 className="text-display-sm text-ink-900">From RFQ to container in five steps</h2>
+          <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              ['1', 'Send wishlist', 'SKU list, OE references or photos.'],
+              ['2', 'Get quote', '< 24 hour FOB/CIF pricing.'],
+              ['3', 'Sample', 'Optional sample run, photo & video QC.'],
+              ['4', 'Production', '25–35 days under IATF 16949.'],
+              ['5', 'Shipping', 'FCL/LCL/rail with full export docs.'],
+            ].map(([n, t, d]) => (
+              <li key={t} className="rounded-lg border border-ink-200 bg-white p-5">
+                <p className="font-display text-[28px] font-bold text-accent">{n}</p>
+                <p className="mt-2 font-display text-[15px] font-bold text-ink-900">{t}</p>
+                <p className="mt-1 text-[12px] text-ink-600">{d}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      <section className="bg-ink-050 py-20 text-center">
-        <div className="container-page">
-          <h2 className="text-display-sm text-ink-900 text-balance">Send your wishlist. We'll send a quote.</h2>
-          <div className="mt-8 flex justify-center gap-3">
-            <Link to="/contact" className="btn-dark">Request catalog</Link>
-            <Link to="/categories" className="btn-ghost">Browse categories</Link>
-          </div>
+      <section className="bg-ink-900 text-white">
+        <div className="container-page py-14 text-center">
+          <h2 className="text-display-sm">Let's spec your first container.</h2>
+          <Link to="/contact" className="btn-accent mt-6">Send your wishlist</Link>
         </div>
       </section>
     </>
